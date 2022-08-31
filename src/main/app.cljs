@@ -39,7 +39,7 @@
     (draw-circle ctx (+ cx x) (+ cy y) (planet-param :radius) (planet-param :color))))
 
 (defn clean-canvas [ctx]
-  (set! (.-fillStyle ctx) "#fff")
+  (set! (.-fillStyle ctx) "#000")
   (.beginPath ctx)
   (.rect ctx 0 0 width height)
   (.fill ctx))
@@ -47,41 +47,44 @@
 (def delta (atom 0))
 (def fps 60)
 
+;; 0 60 140 160 270
+
+;; revolutions  20 10 
 
 (def mercure
-  {:radius 25
+  {:radius 20
    :color "#fb923c"
    :orbital-period 20
    :orbital-radius 200
-   :initial-angle 0})
+   :initial-angle 140})
 
 (def venus
-  {:radius 30
+  {:radius 25
    :color "#7c3aed"
-   :orbital-period 20
+   :orbital-period 30
    :orbital-radius 260
    :initial-angle 0})
 
 (def earth
   {:radius 30
    :color "#0d9488"
-   :orbital-period 20
+   :orbital-period 40
    :orbital-radius 330
-   :initial-angle 0})
+   :initial-angle 60})
 
 (def mars
-  {:radius 30
+  {:radius 40
    :color "#b91c1c"
-   :orbital-period 20
+   :orbital-period 50
    :orbital-radius 400
-   :initial-angle 0})
+   :initial-angle 270})
 
 (def jupiter
-  {:radius 30
+  {:radius 60
    :color "#d4d4d4"
-   :orbital-period 20
-   :orbital-radius 450
-   :initial-angle 0})
+   :orbital-period 60
+   :orbital-radius 470
+   :initial-angle 160})
 
 (defn draw []
   (clean-canvas ctx)
